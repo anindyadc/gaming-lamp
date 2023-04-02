@@ -10,15 +10,15 @@
 #############################################################################################
 # General variables used in the different Azure CLI commands run from this script
 
-export YOURSUBSCRIPTIONID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-export RESOURCEGROUPNAME=myResourceGroup
-export REGIONNAME=japanwest
-export LOGINUSERNAME=azureuser
+export YOURSUBSCRIPTIONID=fc69814a-eec6-4f04-9568-e1f1acf4619c
+export RESOURCEGROUPNAME=mylampstack
+export REGIONNAME=eastus2
+export LOGINUSERNAME=eastus2
 #export LOGINPASSWORD=N0tReCoMM3ND3DUseSSH
 
 # Variables for creating the VM that will serve as a foundation for the VMSS golden image
 export VMNAME=myVirtualMachine
-export IMAGE=Canonical:UbuntuServer:16.04-LTS:latest
+export IMAGE=Canonical:0001-com-ubuntu-server-jammy:22_04-lts:latest
 export VMSIZE=Standard_B1s
 export VMDATADISKSIZEINGB=5
 #############################################################################################
@@ -26,7 +26,7 @@ export VMDATADISKSIZEINGB=5
 #############################################################################################
 
 # Connect to Azure
-az login
+#az login
 
 # Set the Azure subscription
 az account set \

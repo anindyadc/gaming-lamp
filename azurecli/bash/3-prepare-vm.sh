@@ -11,9 +11,9 @@
 
 #############################################################################################
 # General variables used in the different Azure CLI commands run from this script
-export YOURSUBSCRIPTIONID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-export RESOURCEGROUPNAME=myResourceGroup
-export REGIONNAME=japanwest
+export YOURSUBSCRIPTIONID=fc69814a-eec6-4f04-9568-e1f1acf4619c
+export RESOURCEGROUPNAME=mylampstack
+export REGIONNAME=eastus2
 
 # Variables for preparing the Virtual Machine
 export VMNAME=myVirtualMachine
@@ -22,7 +22,7 @@ export VMNAME=myVirtualMachine
 #############################################################################################
 
 # Connect to Azure
-az login
+#az login
 
 # Set the Azure subscription
 az account set \

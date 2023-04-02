@@ -11,9 +11,9 @@
 
 #############################################################################################
 # General variables used in the different Azure CLI commands run from this script
-export YOURSUBSCRIPTIONID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-export RESOURCEGROUPNAME=myResourceGroup
-export REGIONNAME=japanwest
+export YOURSUBSCRIPTIONID=fc69814a-eec6-4f04-9568-e1f1acf4619c
+export RESOURCEGROUPNAME=mylampstack
+export REGIONNAME=eastus2
 export PREFIX=myGameBackend
 
 # Variables for creating the networking resources (load balancer, etc)

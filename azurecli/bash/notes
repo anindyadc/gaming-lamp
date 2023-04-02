@@ -1,0 +1,8 @@
+az account subscription list
+az account show --query id --output tsv
+az vm list-skus --size Standard_B1s --query [].locationInfo[].location
+az vm image list --all --publisher Canonical
+az vm image list --all --publisher Canonical --query [].urn --out tsv
+==
+az network public-ip list --resource-group mylampstack --query [].ipAddress
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/phpinfo.php > /dev/null

@@ -10,9 +10,9 @@
 
 #############################################################################################
 # General variables used in the different Azure CLI commands run from this script
-export YOURSUBSCRIPTIONID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-export RESOURCEGROUPNAME=myResourceGroup
-export REGIONNAME=japanwest
+export YOURSUBSCRIPTIONID=fc69814a-eec6-4f04-9568-e1f1acf4619c
+export RESOURCEGROUPNAME=mylampstack
+export REGIONNAME=eastus2
 export LOGINUSERNAME=azureuser
 #export LOGINPASSWORD=N0tReCoMM3ND3DUseSSH
 export PREFIX=myGameBackend
@@ -39,7 +39,7 @@ export VMSSOVERPROVISIONING=--disable-overprovision
 #############################################################################################
 
 # Connect to Azure
-az login
+#az login
 
 # Set the Azure subscription
 az account set \
@@ -62,7 +62,7 @@ az vmss create \
  --vm-sku $VMSSSKUSIZE \
  --lb-nat-pool-name $LBNATPOOLNAME \
  --accelerated-networking $VMSSACELERATEDNETWORKING \
- --generate-ssh-keys $VMSSOVERPROVISIONING
+ --ssh-key-value ~/.ssh/id_rsa $VMSSOVERPROVISIONING
 
 echo Scale set upgrade policy
 az vmss show \
@@ -75,7 +75,7 @@ az vmss update \
  --resource-group $RESOURCEGROUPNAME \
  --name $VMSSNAME \
  --query virtualMachineProfile.networkProfile.healthProbe \
- --set virtualMachineProfile.networkProfile.healthProbe.id='${HEALTHPROBEID}'
+ --set virtualMachineProfile.networkProfile.healthProbe.id=${HEALTHPROBEID}
 
 echo Updating all the instances
 az vmss update-instances \

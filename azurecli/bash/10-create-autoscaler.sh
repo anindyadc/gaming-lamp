@@ -11,26 +11,26 @@
 
 #############################################################################################
 # General variables used in the different Azure CLI commands run from this script
-export YOURSUBSCRIPTIONID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-export RESOURCEGROUPNAME=myResourceGroup
-export REGIONNAME=japanwest
+export YOURSUBSCRIPTIONID=fc69814a-eec6-4f04-9568-e1f1acf4619c
+export RESOURCEGROUPNAME=mylampstack
+export REGIONNAME=eastus2
 export PREFIX=myGameBackend
 
 # Variables for setting up the virtual machine scale set autoscaler
 export VMSSNAME=${PREFIX}VMSS
 export VMSSVMTOCREATE=2
 export VMSSAUTOSCALERNAME=${PREFIX}Autoscaler
-export VMSSAUTOSCALERCRITERIA=Percentage CPU
+export VMSSAUTOSCALERCRITERIA="Percentage CPU"
 export VMSSAUTOSCALERMAXCOUNT=10
 export VMSSAUTOSCALERMINCOUNT=$VMSSVMTOCREATE
-export VMSSAUTOSCALERUPTRIGGER=50 avg 5m
-export VMSSAUTOSCALERDOWNTRIGGER=30 avg 5m
+export VMSSAUTOSCALERUPTRIGGER="50 avg 5m"
+export VMSSAUTOSCALERDOWNTRIGGER="30 avg 5m"
 export VMSSAUTOSCALEROUTINCREASE=1
 export VMSSAUTOSCALERINDECREASE=1
 #############################################################################################
 
 # Connect to Azure
-az login
+#az login
 
 # Set the Azure subscription
 az account set \

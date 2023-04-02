@@ -10,9 +10,9 @@
 #############################################################################################
 # General variables used in the different Azure CLI commands run from this script
 
-export YOURSUBSCRIPTIONID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-export RESOURCEGROUPNAME=myResourceGroup
-export REGIONNAME=japanwest
+export YOURSUBSCRIPTIONID=fc69814a-eec6-4f04-9568-e1f1acf4619c
+export RESOURCEGROUPNAME=mylampstack
+export REGIONNAME=eastus2
 export LOGINUSERNAME=azureuser
 export PREFIX=myGameBackend
 
@@ -32,14 +32,14 @@ export MYSQLSKU=GP_Gen5_2
 export MYSQLSTORAGEMBSIZE=51200
 export MYSQLVERSION=5.7
 export MYSQLREADREPLICANAME=${MYSQLNAMEUNIQUE}Replica
-export MYSQLREADREPLICAREGION=westus
+export MYSQLREADREPLICAREGION=eastus2
 export MYSQLSUBNETNAME=${MYSQLNAME}Subnet
 export MYSQLSUBNETADDRESSPREFIX=10.0.2.0/24
 export MYSQLRULENAME=${MYSQLNAME}Rule
 #############################################################################################
 
 # Connect to Azure
-az login
+#az login
 
 # Set the Azure subscription
 az account set \
@@ -78,9 +78,9 @@ az mysql server vnet-rule create \
  --subnet $MYSQLSUBNETNAME \
  --name $MYSQLRULENAME
 
-echo creating a read replica named $MYSQLREADREPLICANAME in the region $MYSQLREADREPLICAREGION using $MYSQLNAME as a source - master
+echo creating a read replica named $MYSQLREADREPLICANAME in the region $MYSQLREADREPLICAREGION using $MYSQLNAMEUNIQUE as a source - master
 az mysql server replica create \
  --resource-group $RESOURCEGROUPNAME \
  --name $MYSQLREADREPLICANAME \
- --source-server $MYSQLNAME \
+ --source-server $MYSQLNAMEUNIQUE \
  --location $MYSQLREADREPLICAREGION
